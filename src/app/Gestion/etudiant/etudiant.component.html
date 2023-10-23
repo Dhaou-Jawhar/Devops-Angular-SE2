@@ -1,0 +1,24 @@
+<div class="text-center">
+<!--  <button class="btn btn-primary" (click)="ajouterEtudiant(content)">Ajouter Étudiant</button>-->
+</div>
+<br>
+<br>
+<br>
+
+
+<!-- Liste des étudiants -->
+<div class="row">
+  <div class="col-md-3" *ngFor="let etudiant of etudiants">
+    <div class="card mb-4">
+      <div class="card-body">
+        <h5 class="card-title">{{ etudiant.nomE }}</h5>
+        <p class="card-text">Prénom: {{ etudiant.prenomE }}</p>
+        <p class="card-text">Option: {{ etudiant.op }}</p>
+        <p class="card-text">Département: {{ etudiant.departement }}</p>
+        <p class="card-text">Equipes: {{ etudiant.equipes }}</p>
+        <p class="card-text">Contrats: {{ etudiant.contrats }}</p>
+        <a href="#" class="btn btn-primary">Afficher l'étudiant</a>
+      </div>
+    </div>
+  </div>
+</div>
