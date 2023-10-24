@@ -12,4 +12,4 @@ RUN npm run build --prod
 # stage 2
 FROM nginx:alpine
 
-COPY --from=node /app/dist/angular-product-config /var/lib/jenkins/workspace/DevOps
+COPY --from=node /Kaddem-Angular/dist/angular-product-config /var/lib/jenkins/workspace/DevOps
