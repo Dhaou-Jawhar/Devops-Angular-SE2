@@ -6,7 +6,7 @@ WORKDIR /Kaddem-Angular
 COPY . .
 
 RUN npm cache clean --force
-RUN npm install --force --legacy-peer-deps
+RUN npm install --force
 RUN npm run build --prod
 
 # stage 2
