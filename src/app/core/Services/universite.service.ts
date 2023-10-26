@@ -18,4 +18,8 @@ export class UniversiteService {
     return this.http.delete(`${this.API_URL}remove-universite/${id}`);
   }
 
+  getUnivid(id:number){
+    return this.http.get<Universite>(`${this.API_URL}retrieve-universite/${id}`);
+  }
+
 }
