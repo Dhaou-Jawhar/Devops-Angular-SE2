@@ -22,6 +22,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { UnivListComponent } from './Gestion/universite/univ-list/univ-list.component';
 import { UnivModelComponent } from './Gestion/universite/univ-model/univ-model.component';
 import { UnivDetailComponent } from './Gestion/universite/univ-detail/univ-detail.component';
+import { UnivFormComponent } from './Gestion/universite/univ-form/univ-form.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { UnivDetailComponent } from './Gestion/universite/univ-detail/univ-detai
     UnivListComponent,
     UnivModelComponent,
     UnivDetailComponent,
+    UnivFormComponent,
   ],
   imports: [
     BrowserModule,
