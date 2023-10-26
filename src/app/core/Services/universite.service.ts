@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Universite} from "../Models/universite";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,11 @@ export class UniversiteService {
 
   getUnivid(id:number){
     return this.http.get<Universite>(`${this.API_URL}retrieve-universite/${id}`);
+  }
+
+  addUniversite(universite: Universite): Observable<any> {
+    const url = `${this.API_URL}add-universite`;
+    return this.http.post(url, universite);
   }
 
 }
