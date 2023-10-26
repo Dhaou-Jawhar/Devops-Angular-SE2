@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Universite} from "../../../core/Models/universite";
 import {UniversiteService} from "../../../core/Services/universite.service";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-univ-list',
@@ -21,7 +22,7 @@ export class UnivListComponent implements OnInit {
       });
   }
 
-  async deleteUniversite(id:number):Promise<void> {
+  /*async deleteUniversite(id:number):Promise<void> {
     const response = await this.univService.deleteUniversite(id).subscribe(
       res=>{
         console.log(res);
@@ -34,6 +35,48 @@ export class UnivListComponent implements OnInit {
         console.log("delete Universite completed!")
       }
     )
+  }*/
+
+  //SWAL : https://www.tutsmake.com/angular-14-sweetalert2-example/
+
+  async deleteUniversiteWithConfirmation(id: number): Promise<void> {
+    Swal.fire({
+      title: 'Are you sure you want to remove?',
+      text: 'You will not be able to recover this file!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, keep it'
+    }).then((result) => {
+      if (result.value) {
+        // User confirmed deletion
+        this.univService.deleteUniversite(id).subscribe(
+          res => {
+            console.log(res);
+            let index = this.list.findIndex(c => c.idUniv);
+            window.location.reload();
+          },
+          err => {
+            console.log(err);
+          }, () => {
+            console.log("delete Universite completed!");
+          }
+        );
+
+        Swal.fire(
+          'Deleted!',
+          'Your universite has been deleted.',
+          'success'
+        );
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        // User canceled deletion
+        Swal.fire(
+          'Cancelled',
+          'Your universite file is safe :)',
+          'error'
+        );
+      }
+    });
   }
 
 }
