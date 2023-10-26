@@ -24,6 +24,8 @@
     "bootstrap": "^5.3.2",
     "cross-env": "^7.0.3",
     "rxjs": "~7.4.0",
+    "sweetalert": "^2.1.2",
+    "sweetalert2": "^11.7.32",
     "tailwindcss": "^2.2.19",
     "three": "0.135",
     "tslib": "^2.3.0",
