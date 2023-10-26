@@ -30,11 +30,10 @@ const routes: Routes = [
       },
       {
         path:'adduniv',component:UnivFormComponent
-      }
-      ,
+      },
       {
         path:'departement',component:DepartementComponent
-      },
+      }
       ]
   }
   ];
