@@ -4,6 +4,7 @@ import {AllTemplateUserComponent} from "./frontOffice/all-template-user/all-temp
 import {LandingPageComponent} from "./frontOffice/landing-page/landing-page.component";
 import {EtudiantComponent} from "./Gestion/etudiant/etudiant.component";
 import {UnivListComponent} from "./Gestion/universite/univ-list/univ-list.component";
+import {UnivDetailComponent} from "./Gestion/universite/univ-detail/univ-detail.component";
 
 
 const routes: Routes = [
@@ -21,7 +22,11 @@ const routes: Routes = [
       },
       {
         path:'universite',component:UnivListComponent
-      }]
+      },
+      {
+        path:'universiteDetail/:id',component:UnivDetailComponent
+      }
+      ]
   }
   ];
 

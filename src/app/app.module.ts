@@ -21,6 +21,7 @@ import { EtudiantComponent } from './Gestion/etudiant/etudiant.component';
 import {HttpClientModule} from "@angular/common/http";
 import { UnivListComponent } from './Gestion/universite/univ-list/univ-list.component';
 import { UnivModelComponent } from './Gestion/universite/univ-model/univ-model.component';
+import { UnivDetailComponent } from './Gestion/universite/univ-detail/univ-detail.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { UnivModelComponent } from './Gestion/universite/univ-model/univ-model.c
     EtudiantComponent,
     UnivListComponent,
     UnivModelComponent,
+    UnivDetailComponent,
   ],
   imports: [
     BrowserModule,
