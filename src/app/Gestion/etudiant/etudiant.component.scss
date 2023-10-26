@@ -1,0 +1,13 @@
+.card-background {
+  background-image: url('/assets/images/etudiant.jpg');
+  background-size: contain; /* Ajuste la taille de l'image pour qu'elle tienne complètement dans la carte */
+  background-position: center; /* Centre l'image dans la carte */
+  background-repeat: no-repeat; /* Empêche la répétition de l'image */
+}
+
+.card{
+  transition: transform 0.3s;
+  &:hover {
+    transform: translateY(-1.5rem) scale(1.03);
+  }
+}
