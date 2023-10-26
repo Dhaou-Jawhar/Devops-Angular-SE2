@@ -1,16 +1,17 @@
 import { NgtSobaOrbitControls } from '@angular-three/soba/controls';
 import { NgtGLTFLoaderService } from '@angular-three/soba/loaders';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit , Output, SimpleChange } from '@angular/core';
 import { MeshStandardMaterial, Object3D, Mesh, PerspectiveCamera } from 'three';
 
 @Component({
-  selector: 'app-logo',
-  templateUrl: './logo.component.html',
-  styleUrls: ['./logo.component.scss']
+  selector: 'app-univ-model',
+  templateUrl: './univ-model.component.html',
+  styleUrls: ['./univ-model.component.scss']
 })
-export class LogoComponent implements OnInit {
+export class UnivModelComponent implements OnInit {
 
-  @Input()
+  @Input() obj:string ='';
+
   set color(value: string) {
     this.#color = value;
     this.applyColorToMaterial(value);
@@ -18,11 +19,11 @@ export class LogoComponent implements OnInit {
 
   #color = '';
 
+  cup$ = this.gltfLoaderService.load('assets/3dModels/'+this.obj);
+
   cupMaterial: MeshStandardMaterial | undefined;
 
   constructor(private gltfLoaderService: NgtGLTFLoaderService) {}
-
-  cup$ = this.gltfLoaderService.load('assets/3dModels/test.glb');
 
   cupLoaded(object: Object3D) {
     this.cupMaterial = <MeshStandardMaterial>(<Mesh>object.getObjectByName('Object_2')).material;
@@ -30,16 +31,17 @@ export class LogoComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    console.log('assets/3dModels/'+this.obj);
+    this.cup$ = this.gltfLoaderService.load('assets/3dModels/'+this.obj);
   }
 
   controlsReady(controls: NgtSobaOrbitControls) {
     const orbitControls = controls.controls;
     orbitControls.enableZoom = true;
     orbitControls.autoRotate = true;
-    orbitControls.autoRotateSpeed = -1;
+    orbitControls.autoRotateSpeed = 10;
     const camera = orbitControls.object as PerspectiveCamera;
-    camera.zoom = 1;
+    camera.zoom = 2;
     camera.position.setY(4);
   }
 
@@ -50,4 +52,3 @@ export class LogoComponent implements OnInit {
   }
 
 }
-

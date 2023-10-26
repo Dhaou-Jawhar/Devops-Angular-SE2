@@ -1,7 +1,8 @@
 import {Departement} from "./Departement";
 
-export class Contrat{
+export class Universite{
   idUniv!:number;
+  model!:string;
   nomUniv!:string;
   departements!:Departement;
 }

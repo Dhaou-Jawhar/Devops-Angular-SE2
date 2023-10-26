@@ -1,0 +1,17 @@
+
+<div class="container" style="margin-top: 150px;">
+
+  <h4 style="text-align: center; font-family : cursive ;  font-weight : bold ; font-size : 25px ;"  >List of Universities</h4>
+  <div class="row" >
+    <div class="col-4" *ngFor="let universite of list">
+      <div class="card"  style="width: 18rem; margin : 10px" >
+        <app-univ-model class="w-200px h-[300px]" [obj] = "universite.model"></app-univ-model>
+        <div class="card-body">
+          <h5 class="card-title" style="text-align: center; color :#3B71CA ; font-weight : bold ; font-size : 20px ; ">{{universite.nomUniv}}</h5>
+        </div>
+        <button (click)="deleteUniversite(universite.idUniv)">Delete</button>
+      </div>
+    </div>
+
+</div>
+</div>

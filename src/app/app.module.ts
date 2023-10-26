@@ -19,6 +19,8 @@ import {LandingPageComponent} from "./frontOffice/landing-page/landing-page.comp
 import {NavUserComponent} from "./frontOffice/nav-user/nav-user.component";
 import { EtudiantComponent } from './Gestion/etudiant/etudiant.component';
 import {HttpClientModule} from "@angular/common/http";
+import { UnivListComponent } from './Gestion/universite/univ-list/univ-list.component';
+import { UnivModelComponent } from './Gestion/universite/univ-model/univ-model.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import {HttpClientModule} from "@angular/common/http";
     LandingPageComponent,
     NavUserComponent,
     EtudiantComponent,
+    UnivListComponent,
+    UnivModelComponent,
   ],
   imports: [
     BrowserModule,
