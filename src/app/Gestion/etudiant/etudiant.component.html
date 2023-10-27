@@ -1,23 +1,70 @@
+<br>
+<br>
+<br>
+<br>
 <div class="text-center">
-<!--  <button class="btn btn-primary" (click)="ajouterEtudiant(content)">Ajouter Étudiant</button>-->
+  <button class="btn btn-primary" (click)="showFormulaire()"><i class="fas fa-plus" style="margin-right: 5px;"></i>Ajouter Étudiant</button>
+</div>
+<br>
+<!-- Formulaire d'ajout d'étudiant -->
+<div *ngIf="afficherFormulaire" class="container mt-4">
+  <h2>Ajouter Étudiant</h2>
+  <form [formGroup]="etudiantForm">
+    <div class="form-group">
+      <label for="nomE">Nom</label>
+      <input type="text" class="form-control" id="nomE" formControlName="nomE">
+    </div>
+    <div class="form-group">
+      <label for="prenom">Prénom</label>
+      <input type="text" class="form-control" id="prenom" formControlName="prenomE" required>
+    </div>
+    <div class="form-group">
+      <label for="contrat">Contrat</label>
+      <input type="text" class="form-control" id="contrat" formControlName="contrats" required>
+    </div>
+    <div class="form-group">
+      <label for = "equipe">Équipe</label>
+      <input type="text" class="form-control" id="equipe" formControlName="equipes" required>
+    </div>
+    <div class="form-group">
+      <label for="option">Option</label>
+      <select class="form-control" id="option" formControlName="op" required>
+        <option value="SE">SE</option>
+        <option value="GAMIX">GAMIX</option>
+        <option value="NIDS">NIDS</option>
+        <option value="SIM">SIM</option>
+      </select>
+    </div>
+    <br>
+    <br>
+    <div class="form-group text-center">
+      <div class="btn-group" role="group">
+        <button type="submit" class="btn btn-primary" (click)="ajouterNouvelEtudiant()">
+          <i class="fas fa-plus"></i> Ajouter
+        </button>
+        <span style="margin: 0 10px;"></span> <!-- Espace entre les boutons -->
+        <button type="button" (click)="masquerFormulaire()" class="btn btn-primary">
+          <i class="fas fa-times"></i> Annuler
+        </button>
+      </div>
+    </div>
+  </form>
 </div>
 <br>
 <br>
-<br>
-
 
 <!-- Liste des étudiants -->
 <div class="row">
   <div class="col-md-3" *ngFor="let etudiant of etudiants">
-    <div class="card mb-4">
+    <div class="card mb-4 card-background">
       <div class="card-body">
-        <h5 class="card-title">{{ etudiant.nomE }}</h5>
-        <p class="card-text">Prénom: {{ etudiant.prenomE }}</p>
-        <p class="card-text">Option: {{ etudiant.op }}</p>
-        <p class="card-text">Département: {{ etudiant.departement }}</p>
-        <p class="card-text">Equipes: {{ etudiant.equipes }}</p>
-        <p class="card-text">Contrats: {{ etudiant.contrats }}</p>
-        <a href="#" class="btn btn-primary">Afficher l'étudiant</a>
+        <h5 class="card-title text-dore">{{ etudiant.nomE }}</h5>
+        <p class="card-title text-dore">Prénom: {{ etudiant.prenomE }}</p>
+        <p class="card-title text-dore">Option: {{ etudiant.op }}</p>
+        <p class="card-title text-dore">Département: {{ etudiant.departement }}</p>
+        <p class="card-title text-dore">Equipes: {{ etudiant.equipes }}</p>
+        <p class="card-title text-dore">Contrats: {{ etudiant.contrats }}</p>
+        <a  (click)="confirmationSuppressionEtudiant(etudiant.idEtudiant)" class="btn btn-primary"><i class="fas fa-trash"></i></a>
       </div>
     </div>
   </div>

@@ -21,7 +21,8 @@ import { EtudiantComponent } from './Gestion/etudiant/etudiant.component';
 import {HttpClientModule} from "@angular/common/http";
 import { UnivListComponent } from './Gestion/universite/univ-list/univ-list.component';
 import { UnivModelComponent } from './Gestion/universite/univ-model/univ-model.component';
-import { DepartementComponent } from './Gestion/departement/departement.component';
+import { UnivDetailComponent } from './Gestion/universite/univ-detail/univ-detail.component';
+import { UnivFormComponent } from './Gestion/universite/univ-form/univ-form.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { DepartementComponent } from './Gestion/departement/departement.componen
     EtudiantComponent,
     UnivListComponent,
     UnivModelComponent,
-    DepartementComponent,
+    UnivDetailComponent,
+    UnivFormComponent,
   ],
   imports: [
     BrowserModule,
