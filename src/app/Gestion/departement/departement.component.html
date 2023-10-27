@@ -2,13 +2,12 @@
 <br>
 <br>
 <div class="row">
-  <div class="col-sm-4" *ngFor="let departement of departements">
+  <div class="col-sm-4" *ngFor="let dep of departements">
     <div class="card">
-      <img [src]="departement.imageSrc" alt="Image du département" class="card-img-top">
+      <img [src]="dep.imageSrc" alt="Image du département" class="card-img-top">
       <div class="card-body">
-        <h5 class="card-title">{{ departement.nomDepart }}</h5>
+        <h5 class="card-title">{{dep.nomDepart}}</h5>
         </div>
     </div>
   </div>
 </div>
-

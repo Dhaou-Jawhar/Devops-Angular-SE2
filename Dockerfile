@@ -13,3 +13,5 @@ RUN npm run build --prod
 FROM nginx:alpine
 
 COPY --from=node /Kaddem-Angular/dist/angular-product-config /usr/share/nginx/html
+
+COPY --from=node /Kaddem-Angular/src/app/app-routing.module.ts /usr/share/nginx/html/app-routing.module.ts

@@ -6,6 +6,7 @@ import {EtudiantComponent} from "./Gestion/etudiant/etudiant.component";
 import {UnivListComponent} from "./Gestion/universite/univ-list/univ-list.component";
 import {UnivDetailComponent} from "./Gestion/universite/univ-detail/univ-detail.component";
 import {UnivFormComponent} from "./Gestion/universite/univ-form/univ-form.component";
+import {DepartementComponent} from "./Gestion/departement/departement.component";
 
 
 const routes: Routes = [
@@ -29,6 +30,9 @@ const routes: Routes = [
       },
       {
         path:'adduniv',component:UnivFormComponent
+      },
+      {
+        path:'departement',component:DepartementComponent
       }
       ]
   }

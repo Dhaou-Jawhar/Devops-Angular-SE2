@@ -8,8 +8,8 @@ import {DepartementService} from "../../core/Services/departement.service";
   styleUrls: ['./departement.component.scss']
 })
 export class DepartementComponent implements OnInit {
-  departement: Departement = new Departement();
- listdepartement: any;
+  dep: Departement = new Departement();
+  listdepartement: any;
   departements!: Departement[];
 
   constructor(private depservice: DepartementService) {
