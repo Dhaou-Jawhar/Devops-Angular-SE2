@@ -3,15 +3,17 @@ FROM node:14 as node
 
 WORKDIR /Kaddem-Angular
 
-COPY . .
+COPY . /Kaddem-Angular
 
 RUN npm cache clean --force
 RUN npm install --force
 RUN npm run build --prod
+RUN npm install @angular/cli
+
+# Copy the Nginx configuration file
+COPY nginx.conf /etc/nginx/nginx.conf
 
 # stage 2
 FROM nginx:alpine
 
 COPY --from=node /Kaddem-Angular/dist/angular-product-config /usr/share/nginx/html
-
-COPY --from=node /Kaddem-Angular/src/app/app-routing.module.ts /usr/share/nginx/html/app-routing.module.ts
