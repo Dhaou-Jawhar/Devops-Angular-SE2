@@ -1,0 +1,6 @@
+.card {
+  transition: transform 0.3s;
+  &:hover {
+    transform: translateY(-1.5rem) scale(1.03);
+  }
+}
