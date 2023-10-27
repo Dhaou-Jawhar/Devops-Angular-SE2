@@ -12,29 +12,31 @@ import {DepartementComponent} from "./Gestion/departement/departement.component"
 const routes: Routes = [
   {
     path: '', component: AllTemplateUserComponent,
-  },
-  {
-    path: 'home', component: LandingPageComponent,
-  },
-  {
-    path: 'etudiant', component: EtudiantComponent,
-  },
-  {
-    path: 'universite', component: UnivListComponent,
-  },
-  {
-    path: 'universiteDetail/:id', component: UnivDetailComponent,
-  },
-  {
-    path: 'adduniv', component: UnivFormComponent,
-  },
-  {
-    path: 'departement', component: DepartementComponent,
-  },
-  {
-    path: 'universiteDetail/:id', component: UnivDetailComponent,
-  },
-];
+    children:[
+      {
+        path:'',component:LandingPageComponent
+      },
+      {
+        path:'home',component:LandingPageComponent
+      },
+      {
+        path:'etudiant',component:EtudiantComponent
+      },
+      {
+        path:'universite',component:UnivListComponent
+      },
+      {
+        path:'universiteDetail/:id',component:UnivDetailComponent
+      },
+      {
+        path:'adduniv',component:UnivFormComponent
+      },
+      {
+        path:'departement',component:DepartementComponent
+      }
+      ]
+  }
+  ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
