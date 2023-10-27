@@ -11,7 +11,7 @@ RUN npm run build --prod
 RUN npm install @angular/cli
 
 # Copy the Nginx configuration file
-COPY nginx.conf /etc/nginx/nginx.conf
+#COPY nginx.conf /etc/nginx/nginx.conf
 
 # stage 2
 FROM nginx:alpine
