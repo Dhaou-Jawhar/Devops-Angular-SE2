@@ -44,10 +44,10 @@ export class EtudiantComponent implements OnInit {
 
   ajouterNouvelEtudiant() {
     console.log('Valeur de nom:', this.etudiantForm.value.nomE);
-    console.log('Valeur de prénom:', this.etudiantForm.value.prenom);
-    console.log('Valeur de contrat:', this.etudiantForm.value.contrat);
-    console.log('Valeur de équipe:', this.etudiantForm.value.equipe);
-    console.log('Valeur de option:', this.etudiantForm.value.option);
+    console.log('Valeur de prénom:', this.etudiantForm.value.prenomE);
+    console.log('Valeur de contrat:', this.etudiantForm.value.contrats);
+    console.log('Valeur de équipe:', this.etudiantForm.value.equipes);
+    console.log('Valeur de option:', this.etudiantForm.value.op);
     const nomE = this.etudiantForm.value.nomE;
     const prenomE = this.etudiantForm.value.prenomE;
     const contrats = this.etudiantForm.value.contrats;
@@ -63,19 +63,19 @@ export class EtudiantComponent implements OnInit {
     };
 
     this.etudiantService.addEtudiant(nouvelEtudiantData).subscribe(
-      (response) => {
-        this.etudiantService.getEtudiants().subscribe(res => {
-          this.etudiants = res;
-          Swal.fire('Succès!', 'Etudiant ajoté correctement');
+        (response) => {
+          this.etudiantService.getEtudiants().subscribe(res => {
+            this.etudiants = res;
+            Swal.fire('Succès!', 'Etudiant ajoté correctement');
 
 
-         });
-        this.afficherFormulaire = false;
-      },
-      (error) => {
-        console.error('Erreur lors de l\'ajout de l\'étudiant : ', error);
-        // Gérez les erreurs en conséquence
-      }
+          });
+          this.afficherFormulaire = false;
+        },
+        (error) => {
+          console.error('Erreur lors de l\'ajout de l\'étudiant : ', error);
+          // Gérez les erreurs en conséquence
+        }
     );
   }
 
