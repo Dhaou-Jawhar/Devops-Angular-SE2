@@ -44,10 +44,10 @@ export class EtudiantComponent implements OnInit {
 
   ajouterNouvelEtudiant() {
     console.log('Valeur de nom:', this.etudiantForm.value.nomE);
-    console.log('Valeur de prénom:', this.etudiantForm.value.prenom);
-    console.log('Valeur de contrat:', this.etudiantForm.value.contrat);
-    console.log('Valeur de équipe:', this.etudiantForm.value.equipe);
-    console.log('Valeur de option:', this.etudiantForm.value.option);
+    console.log('Valeur de prénom:', this.etudiantForm.value.prenomE);
+    console.log('Valeur de contrat:', this.etudiantForm.value.contrats);
+    console.log('Valeur de équipe:', this.etudiantForm.value.equipes);
+    console.log('Valeur de option:', this.etudiantForm.value.op);
     const nomE = this.etudiantForm.value.nomE;
     const prenomE = this.etudiantForm.value.prenomE;
     const contrats = this.etudiantForm.value.contrats;
@@ -69,7 +69,7 @@ export class EtudiantComponent implements OnInit {
           Swal.fire('Succès!', 'Etudiant ajoté correctement');
 
 
-         });
+        });
         this.afficherFormulaire = false;
       },
       (error) => {
