@@ -3,7 +3,7 @@ FROM node:14 as node
 
 WORKDIR /Kaddem-Angular
 
-COPY . /Kaddem-Angular
+COPY . .
 
 RUN npm cache clean --force
 RUN npm install --force
