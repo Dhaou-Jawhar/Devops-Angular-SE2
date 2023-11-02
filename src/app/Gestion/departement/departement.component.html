@@ -1,4 +1,35 @@
+<!-- Formulaire d'ajout de département -->
 <div class="my-spacing"></div>
+<h5 class="card-title">
+  <i class="fas fa-plus icon-plus" (click)="toggleAddForm()"></i> Ajouter un département
+</h5>
+<div *ngIf="showAddForm">
+  <div class="my-spacing"></div>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">
+            <i class="fas fa-plus"></i> Ajouter un département
+          </h5>
+          <form [formGroup]="departementForm" (ngSubmit)="ajouteDepartement()">
+            <div class="form-group">
+              <label for="nomDepart">Nom du département</label>
+              <input type="text" id="nomDepart" class="form-control" formControlName="nomDepart">
+            </div>
+            <div class="form-group">
+              <label for="imageSrc">URL de l'image</label>
+              <input type="text" id="imageSrc" class="form-control" formControlName="imageSrc">
+            </div>
+            <button type="submit" class="btn btn-primary">Ajouter</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--getall + delete-->
 <div class="row">
   <div class="col-sm-4" *ngFor="let dep of departements">
     <div class="card">
@@ -33,7 +64,7 @@
 <div class="my-spacing"></div>
 
 <!-- Formulaire pour ajouter un département -->
-<div class="row">
+<!--<div class="row">
   <div class="col-sm-4">
     <div class="card">
       <div class="card-body">
@@ -52,5 +83,4 @@
       </div>
     </div>
   </div>
-</div>
-
+</div>-->

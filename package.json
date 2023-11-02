@@ -23,6 +23,7 @@
     "@angular/router": "~13.0.0",
     "bootstrap": "^5.3.2",
     "cross-env": "^7.0.3",
+    "font-awesome": "^4.7.0",
     "rxjs": "~7.4.0",
     "sweetalert2": "^11.7.32",
     "tailwindcss": "^2.2.19",

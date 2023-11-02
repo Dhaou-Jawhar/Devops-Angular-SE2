@@ -27,6 +27,7 @@ export class DepartementComponent implements OnInit {
     this.depservice.getAlldepartement().subscribe(res => {
       this.departements = res;
     });
+
   }
   async deletedep(depId: number): Promise<void> {
     try {
@@ -42,7 +43,7 @@ export class DepartementComponent implements OnInit {
 
   deleteDepartement(depId: number):void {
     Swal.fire({title: 'vous êtes sûr?',
-      text: "voulez-vous supprimer cette Activity!",
+      text: "voulez-vous supprimer cette Departement!",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
