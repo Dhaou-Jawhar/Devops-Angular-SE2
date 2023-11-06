@@ -2,6 +2,16 @@
 <br>
 <br>
 <br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="form-group d-flex justify-content-center">
+        <input type="text" class="form-control" [(ngModel)]="searchTerm" ngDefaultControl (keyup)="search($event)" placeholder="Rechercher un étudiant">
+      </div>
+    </div>
+  </div>
+</div>
+<br>
 <div class="text-center">
   <button class="btn btn-primary" (click)="showFormulaire()"><i class="fas fa-plus" style="margin-right: 5px;"></i>Ajouter Étudiant</button>
 </div>

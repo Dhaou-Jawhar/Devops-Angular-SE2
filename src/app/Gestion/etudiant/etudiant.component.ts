@@ -14,6 +14,10 @@ export class EtudiantComponent implements OnInit {
   afficherFormulaire: boolean = false;
 
   etudiants!: any[];
+
+  allEtudiants : any[] = [];
+
+  searchTerm:string='';
   etudiantForm!: FormGroup;
 
   constructor(private etudiantService: EtudiantService, private fb: FormBuilder) {
@@ -30,6 +34,7 @@ export class EtudiantComponent implements OnInit {
   ngOnInit(): void {
     this.etudiantService.getEtudiants().subscribe(res => {
       this.etudiants = res;
+      this.allEtudiants = res;
     });
   }
 
@@ -66,6 +71,7 @@ export class EtudiantComponent implements OnInit {
       (response) => {
         this.etudiantService.getEtudiants().subscribe(res => {
           this.etudiants = res;
+          this.allEtudiants = res;
           Swal.fire('Succès!', 'Etudiant ajoté correctement');
 
 
@@ -100,6 +106,7 @@ export class EtudiantComponent implements OnInit {
       () => {
         this.etudiantService.getEtudiants().subscribe(res => {
           this.etudiants = res;
+          this.allEtudiants = res;
           Swal.fire('Succès!', 'Etudiant supprimé correctement');
 
         });
@@ -111,6 +118,36 @@ export class EtudiantComponent implements OnInit {
         // Gérez les erreurs en conséquence
       }
     );
+
+  }
+
+  search(event:any){
+
+    this.searchTerm = (event.target as HTMLInputElement).value.toLowerCase();
+    console.log(this.searchTerm);
+    this.etudiants = this.filteredStudents(this.searchTerm)
+  }
+  filteredStudents(typedText: string | any[]){
+    let filtered = ["nomE","prenomE","op"]
+    if (typedText.length==0){
+      return [...this.allEtudiants]
+    }
+    let result = []
+    for(let product of [...this.allEtudiants]){
+      for(let filter of filtered){
+        if (typeof(product[filter]) == "string"){
+          if(product[filter].toLowerCase().includes(<string>typedText)){
+            result.push(product)
+          }
+        }else{
+          if (product[filter]== Number(typedText)){
+            result.push(product)
+          }
+        }
+
+      }
+    }
+    return result;
 
   }
 
