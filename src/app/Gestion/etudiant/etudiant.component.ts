@@ -71,7 +71,7 @@ export class EtudiantComponent implements OnInit {
       (response) => {
         this.etudiantService.getEtudiants().subscribe(res => {
           this.etudiants = res;
-          this.allEtudiants = res;
+          //this.allEtudiants = res;
           Swal.fire('Succès!', 'Etudiant ajoté correctement');
 
 
@@ -127,29 +127,35 @@ export class EtudiantComponent implements OnInit {
     console.log(this.searchTerm);
     this.etudiants = this.filteredStudents(this.searchTerm)
   }
-  filteredStudents(typedText: string | any[]){
-    let filtered = ["nomE","prenomE","op"]
-    if (typedText.length==0){
-      return [...this.allEtudiants]
-    }
-    let result = []
-    for(let product of [...this.allEtudiants]){
-      for(let filter of filtered){
-        if (typeof(product[filter]) == "string"){
-          if(product[filter].toLowerCase().includes(<string>typedText)){
-            result.push(product)
-          }
-        }else{
-          if (product[filter]== Number(typedText)){
-            result.push(product)
-          }
-        }
 
+
+  filteredStudents(typedText: string | any[]) {
+    const filtered = ["nomE", "prenomE", "op"];
+    if (typedText.length === 0) {
+      return [...this.allEtudiants];
+    }
+
+    const result = new Set();
+
+    for (let etudiant of [...this.allEtudiants]) {
+      const matchedFilters = new Set();
+
+      for (let filter of filtered) {
+        if (typeof etudiant[filter] === "string" && etudiant[filter].toLowerCase().includes(<string>typedText)) {
+          matchedFilters.add(filter);
+        } else if (etudiant[filter] === Number(typedText)) {
+          matchedFilters.add(filter);
+        }
+      }
+
+      if (matchedFilters.size > 0) {
+        result.add(etudiant);
       }
     }
-    return result;
 
+    return Array.from(result);
   }
+
 
 
 }
