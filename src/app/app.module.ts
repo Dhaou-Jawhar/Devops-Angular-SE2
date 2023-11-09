@@ -24,6 +24,8 @@ import { UnivModelComponent } from './Gestion/universite/univ-model/univ-model.c
 import { UnivDetailComponent } from './Gestion/universite/univ-detail/univ-detail.component';
 import { UnivFormComponent } from './Gestion/universite/univ-form/univ-form.component';
 import { DepartementComponent } from './Gestion/departement/departement.component';
+import { FormEquipeComponent } from './Gestion/equipe/form-equipe/form-equipe.component';
+import { DetailEquipeComponent } from './Gestion/equipe/detail-equipe/detail-equipe.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { DepartementComponent } from './Gestion/departement/departement.componen
     UnivDetailComponent,
     UnivFormComponent,
     DepartementComponent,
+    FormEquipeComponent,
+    DetailEquipeComponent,
   ],
   imports: [
     BrowserModule,

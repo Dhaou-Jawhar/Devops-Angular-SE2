@@ -1,0 +1,26 @@
+<div class="container p-3 mb-5 " style="margin-top: 150px;">
+  <div class="row mt-2">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="text-center mb-4">Ajouter une équipe</h3>
+          <form>
+            <div class="form-group mb-3">
+              <label for="nomEquipe">Nom de l'équipe</label>
+              <input type="text" class="form-control" id="nomEquipe" name="nomEquipe" [(ngModel)]="Equipe.nomEquipe">
+            </div>
+            <div class="form-group mb-3">
+              <label for="niveauEquipe">Niveau de l'équipe</label>
+              <select class="form-control" id="niveauEquipe" name="niveau" [(ngModel)]="Equipe.niveau">
+                <option value="JUNIOR">JUNIOR</option>
+                <option value="SENIOR">SENIOR</option>
+                <option value="EXPERT">EXPERT</option>
+              </select>
+            </div>
+            <button class="btn btn-success btn-block" (click)="addEquipe()">Ajouter</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
