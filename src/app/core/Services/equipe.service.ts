@@ -8,7 +8,7 @@ import {Observable} from "rxjs";
 })
 export class EquipeService {
 
-  private API_URL ="http://192.168.33.10:8089/kaddem/equipe/"
+  private API_URL ="http://192.168.33.10:8088/kaddem/equipe/"
 
   constructor(private http:HttpClient) { }
 
