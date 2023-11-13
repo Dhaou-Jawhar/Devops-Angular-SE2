@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url: 'http://angular-app:4201/kaddem' // Utilisez le nom du service défini dans Docker Compose
+  url: 'http://192.168.33.10:4201/kaddem' // Utilisez le nom du service défini dans Docker Compose
 };
 
 /*
