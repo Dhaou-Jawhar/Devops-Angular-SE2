@@ -1,5 +1,5 @@
 ### STAGE 1:BUILD ###
-FROM node:16.16-alpine AS node
+FROM node:16.16-alpine AS build
 # Create a Virtual directory inside the docker image
 WORKDIR /dist/src/app
 # Copy files to virtual directory
@@ -13,6 +13,7 @@ RUN npm run build --prod
 
 
 ### STAGE 2:RUN ###
-FROM nginx:alpine 
+FROM nginx:alpine AS ngi
 
 COPY --from=node /Kaddem-Angular/dist/angular-product-config /usr/share/nginx/html
+COPY /nginx.conf /etc/nginx/conf.d/default.conf
