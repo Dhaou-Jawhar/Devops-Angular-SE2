@@ -15,5 +15,5 @@ RUN npm run build --prod
 ### STAGE 2:RUN ###
 FROM nginx:alpine AS ngi
 
-COPY --from=node /Kaddem-Angular/dist/angular-product-config /usr/share/nginx/html
+COPY --from=build /Kaddem-Angular/dist/angular-product-config /usr/share/nginx/html
 COPY /nginx.conf /etc/nginx/conf.d/default.conf
