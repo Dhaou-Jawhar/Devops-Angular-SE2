@@ -1,5 +1,5 @@
 ### STAGE 1:BUILD ###
-FROM node:16.16-alpine AS nodess
+FROM node:16.16-alpine AS node
 # Create a Virtual directory inside the docker image
 WORKDIR /dist/src/app
 # Copy files to virtual directory
