@@ -1,19 +1,16 @@
-# Stage 1
+# stage 1
 FROM node:14 as node
 
 WORKDIR /Kaddem-Angular
 
 COPY . /Kaddem-Angular
 
-# Install npm globally and update it to the latest version
-RUN npm install -g npm@latest
+RUN npm cache clean --force
+RUN npm install --force
+RUN npm run build --prod
+RUN npm install @angular/cli
 
-# Install dependencies and build the Angular app
-RUN npm install --force && \
-    npm install @angular/cli && \
-    npm run build --prod
-
-# Stage 2
+# stage 2
 FROM nginx:alpine
 
 COPY --from=node /Kaddem-Angular/dist/angular-product-config /usr/share/nginx/html
