@@ -8,7 +8,7 @@ import { Contrat } from '../Models/Contrat';
   providedIn: 'root'
 })
 export class ContratService {
-  private baseURL = 'http://192.168.33.10/:8001/kaddem/contrat/'
+  private baseURL = 'http://192.168.33.10:8147/kaddem/contrat/'
   constructor(private httpClient: HttpClient) { }
   getContrat(): Observable<Contrat[]>{
     return this.httpClient.get<Contrat[]>(this.baseURL+"retrieve-all-contrats")
