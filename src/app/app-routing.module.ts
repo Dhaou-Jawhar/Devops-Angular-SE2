@@ -8,6 +8,7 @@ import {UnivDetailComponent} from "./Gestion/universite/univ-detail/univ-detail.
 import {UnivFormComponent} from "./Gestion/universite/univ-form/univ-form.component";
 import {DepartementComponent} from "./Gestion/departement/departement.component";
 import {FormEquipeComponent} from "./Gestion/equipe/form-equipe/form-equipe.component";
+import { DetailEquipeComponent } from './Gestion/equipe/detail-equipe/detail-equipe.component';
 
 
 const routes: Routes = [
@@ -37,6 +38,9 @@ const routes: Routes = [
       },
       {
         path:'equipe',component:FormEquipeComponent
+      },
+      {
+        path:'Allequipe',component:DetailEquipeComponent
       },
       ]
   }

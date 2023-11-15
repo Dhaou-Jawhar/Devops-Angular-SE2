@@ -1,13 +1,52 @@
-<div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="..." class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+<div class="container shadow p-3 mb-5 bg-white rounded" style="margin-top: 150px;">
+  <h4 style="text-align: center; font-family: cursive; font-weight: bold; font-size: 25px; ">
+   - Liste des équipes -
+  </h4>
+  <div class="row">
+    <div class="col-4" *ngFor="let equipe of list">
+      <div class="card shadow p-3 mb-5 bg-white rounded rounded mx-auto" style="width: 19rem; margin: 5px; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; margin-top: 50px;">
+        <img src="assets/images/equipe.png" class="card-img-top" alt="Image de l'équipe" style="width: auto; height: auto;">
+        <div class="card-body" >
+          <h5 class="card-title"
+            style="text-align: center; color: #333; font-size: 20px; font-weight: bold; margin-bottom: 10px;">
+             Nom d'équipe
+          </h5>
+          <p class="card-text"
+            style="text-align: center; color: #555; font-size: 16px; margin-bottom: 10px;">
+             {{equipe.nomEquipe}}
+          </p>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"
+            style="text-align: center; color: #333; font-size: 20px; font-weight: bold; margin-bottom: 10px;">
+            Niveau
+          </h5>
+          <p class="card-text"
+            style="text-align: center; color: #555; font-size: 16px; margin-bottom: 10px;">
+            {{equipe.niveau}}
+          </p>
+        </div>
+        <div style="display: flex; justify-content: center;">
+
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            fill="red"
+            class="bi bi-trash icon"
+            viewBox="0 0 16 16"
+            (click)="deleteEquipeWithConfirmation(equipe.idEquipe)"
+          >
+            <path
+              d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"
+            />
+            <path
+              fill-rule="evenodd"
+              d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
+            />
+          </svg>
+        </div>
       </div>
     </div>
   </div>

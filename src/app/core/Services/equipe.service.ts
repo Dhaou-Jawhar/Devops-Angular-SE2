@@ -20,6 +20,10 @@ export class EquipeService {
   getEquipes() {
     const url = `${this.API_URL}retrieve-all-equipes`;
 
-    return this.http.get<any[]>(url);
+    return this.http.get<any[]>(this.API_URL+"retrieve-all-equipes");
+  }
+
+  deleteEquipe(id:number){
+    return this.http.delete(`${this.API_URL}remove-equipe/${id}`);
   }
 }
