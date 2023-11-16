@@ -6,7 +6,7 @@ import {Departement} from "../Models/Departement";
   providedIn: 'root'
 })
 export class DepartementService {
-private  API_URL="http://localhost:8089/kaddem/departement"
+private  API_URL="http://192.168.33.10:8066/kaddem/departement"
 
   constructor(private  http:HttpClient) {}
   getAlldepartement(){
