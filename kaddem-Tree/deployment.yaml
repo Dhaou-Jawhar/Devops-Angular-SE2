@@ -1,12 +1,12 @@
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
 kind: Deployment
 metadata:
-  name: angular-deployment
+  name: kaddem-deploy
 spec:
   selector:
     matchLabels:
       app: angular
-  replicas: 5 # tells deployment to run 2 pods matching the template
+  replicas: 2 # tells deployment to run 2 pods matching the template
   template:
     metadata:
       labels:
@@ -14,15 +14,14 @@ spec:
     spec:
       containers:
         - name: angular
-          image: dhaoujawhar/alpine:#{Build.BuildId}#
+          image: dhaoujawhar/alpine:1.1-ANGULAR-AWS
           ports:
             - containerPort: 80
 ---
-# https://kubernetes.io/docs/concepts/services-networking/service/#defining-a-service
 kind: Service
 apiVersion: v1
 metadata:
-  name: angular-service
+  name: kaddem-service
 spec:
   selector:
     app: angular
@@ -30,4 +29,5 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 80
-  type: LoadBalancer
+      nodePort: 31000
+  type: NodePort
